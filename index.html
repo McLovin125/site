@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Системное администрирование</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background: #007BFF;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    nav {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .button {
+      background-color: #007BFF;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .content {
+      padding: 20px;
+      background: #fff;
+      border-radius: 5px;
+      max-width: 800px;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px 0;
+      background: #007BFF;
+      color: #fff;
+      width: 100%;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .app-details {
+      display: none;
+      padding-left: 20px;
+    }
+
+    .app-details.active {
+      display: block;
+    }
+
+    img {
+      width: 100%;
+      /* Make images responsive */
+      height: auto;
+      /* Maintain aspect ratio */
+      border-radius: 5px;
+      /* Optional: add some rounding */
+    }
+
+    /* Styles for presentation controls */
+    .presentation-container {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      /* Adjust as needed */
+      margin-top: 20px;
+    }
+
+    .presentation-controls {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .presentation-controls button {
+      background-color: #007BFF;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .fullscreen-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      z-index: 10;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Системное администрирование</h1>
+  </header>
+
+  <nav>
+    <button class="button" onclick="showTab('project-info')">Информация о проекте</button>
+    <button class="button" onclick="showTab('author-info')">Информация об авторе</button>
+    <button class="button" onclick="showTab('software-tools')">Средства установки и удаления ПО</button>
+    <button class="button" onclick="showTab('virtual-machines')">Виртуальные машины</button>
+  </nav>
+
+  <div id="project-info" class="content">
+    <h2>Информация о проекте</h2>
+    <p>Данный проект посвящен изучению средств установки, удаления программного обеспечения и виртуальных машин на операционной системе macOS. В проекте рассматриваются различные инструменты и методы, которые помогут пользователям эффективно управлять программами, обеспечивать безопасность их данных, а также запускать другие операционные системы на macOS.</p>
+  </div>
+
+  <div id="author-info" class="content">
+    <h2>Информация об авторе</h2>
+    <p>Автор: Овчинников Михаил<br>
+      Студент факультета информационных систем и технологий технологий (ИЦТМС 4-4).<br>
+      Цель проекта - изучение и анализ программного обеспечения для macOS.</p>
+  </div>
+
+  <div id="software-tools" class="content">
+    <h2>Средства установки и удаления программного обеспечения</h2>
+    <p>На macOS доступны следующие средства установки и удаления ПО:</p>
+    <ul>
+      <li>Mac App Store</li>
+      <li>Finder</li>
+      <li>Терминал (например, Homebrew)</li>
+      <li>Специализированные программы</li>
+    </ul>
+    <h3>Подробнее о программах:</h3>
+    <button class="button" onclick="showAppDetails('daisydisk-details')">DaisyDisk</button>
+    <div id="daisydisk-details" class="app-details">
+      <h4>DaisyDisk</h4>
+      <p>DaisyDisk — это платная утилита, которая визуально отображает использование дискового пространства на вашем Mac, помогая выявлять и удалять большие и ненужные файлы. Она сканирует диски и показывает файлы и папки в виде интерактивной карты, что позволяет легко находить и удалять редко используемые или устаревшие файлы.</p>
+      <h5>Плюсы:</h5>
+      <ul>
+        <li>Визуализация использования диска: Наглядное представление данных помогает быстро находить большие файлы.</li>
+        <li>Простота использования: Интуитивно понятный интерфейс делает процесс очистки диска простым и понятным.</li>
+        <li>Быстрое сканирование: Быстро сканирует диски, экономя время пользователя.</li>
+      </ul>
+      <h5>Минусы:</h5>
+      <ul>
+        <li>Платное приложение: Требуется покупка лицензии.</li>
+        <li>Не удаляет приложения: Ориентирована на поиск и удаление файлов, а не на полное удаление приложений.</li>
+      </ul>
+      <p><a href="/Users/misutkaopasnost/Desktop/внешний\ вид.png" target="_blank">Официальный сайт DaisyDisk</a></p>
+      <img src="/Users/misutkaopasnost/Desktop/СисАдмин/Снимок экрана 2025-05-21 в 19.48.55.png" alt="DaisyDisk" />
+      <p>Внешний вид</p>
+      <img src="/Users/misutkaopasnost/Desktop/СисАдмин/Снимок экрана 2025-05-21 в 22.00.48.png" alt="DaisyDisk" />
+      <p>Сканирование системы</p>
+      <img src="/Users/misutkaopasnost/Desktop/СисАдмин/Снимок экрана 2025-05-21 в 22.04.53.png" alt="DaisyDisk" />
+      <p>Выбор отдельный папок с данными</p>
+      <img src="/Users/misutkaopasnost/Desktop/СисАдмин/Снимок экрана 2025-05-21 в 22.11.12.png" alt="DaisyDisk" />
+      <p>Удаление папки или отдельных файлов со смежными файлами</p>
+    </div>
+
+    <button class="button" onclick="showAppDetails('osc-cleaner-details')">OS Cleaner Pro</button>
+    <div id="osc-cleaner-details" class="app-details">
+      <h4>OS Cleaner Pro</h4>
+      <p>OS Cleaner Pro — это утилита для очистки и оптимизации операционной системы macOS. Она предназначена для удаления ненужных файлов, временных данных, кэшей, дублирующихся файлов и других элементов, которые могут замедлять работу компьютера или занимать лишнее место на диске.</p>
+      <h5>Плюсы:</h5>
+      <ul>
+        <li>Простота использования с интуитивным интерфейсом.</li>
+        <li>Быстрая очистка системы.</li>
+        <li>Возможность автоматической или ручной настройки очистки.</li>
+      </ul>
+      <h5>Минусы:</h5>
+      <ul>
+        <li>Некоторые функции могут быть доступны только в платной версии.</li>
+        <li>Необходимость осторожности при удалении системных файлов.</li>
+      </ul>
+      <p><a href="https://oscleaner.com/" target="_blank">Официальный сайт OS Cleaner Pro</a></p>
+      <img src="/Users/misutkaopasnost/Desktop/СисАдмин/Снимок экрана 2025-05-21 в 22.15.30.png" alt="OS Cleaner Pro" />
+      <p>Пример интерфейса OS Cleaner Pro</p>
+      <img src="/Users/misutkaopasnost/Desktop/СисАдмин/Снимок экрана 2025-05-21 в 22.24.44.png" alt="OS Cleaner Pro" />
+      <p>Сканирование системы и возможностью очистки кэша</p>
+      <img src="/Users/misutkaopasnost/Desktop/СисАдмин/Снимок экрана 2025-05-21 в 22.29.21.png" alt="OS Cleaner Pro" />
+      <p>Сканирование кэша</p>
+    </div>
+
+    <button class="button" onclick="showAppDetails('finder-details')">Finder</button>
+    <div id="finder-details" class="app-details">
+      <h4>Finder</h4>
+      <p>Finder — это стандартный файловый менеджер в macOS, который позволяет просматривать, организовывать и удалять файлы и приложения.</p>
+      <h5>Плюсы:</h5>
+      <ul>
+        <li>Бесплатное использование: Интегрирован в macOS и не требует дополнительной установки.</li>
+        <li>Простота удаления: Простое перетаскивание приложений в корзину.</li>
+      </ul>
+      <h5>Минусы:</h5>
+      <ul>
+        <li>Неполное удаление: Не удаляет связанные файлы, что может привести к накоплению мусора в системе.</li>
+        <li>Ограниченные функции: Не предоставляет дополнительных инструментов для анализа и очистки диска.</li>
+      </ul>
+      <p><a href="https://support.apple.com/ru-ru/HT201585" target="_blank">Официальный сайт Finder</a></p>
+      <img src="/Users/misutkaopasnost/Desktop/СисАдмин/Снимок экрана 2025-05-21 в 22.32.08.png" alt="Finder" />
+      <p>Пример интерфейса Finder</p>
+    </div>
+  </div>
+
+  <div id="virtual-machines" class="content">
+    <h2>Виртуальные машины</h2>
+    <p>Для запуска других операционных систем на macOS можно использовать программы виртуализации:</p>
+
+    <button class="button" onclick="showAppDetails('parallels-details')">Parallels Desktop</button>
+    <div id="parallels-details" class="app-details">
+      <h4>Parallels Desktop</h4>
+      <p>Parallels Desktop — это коммерческое программное обеспечение для виртуализации, позволяющее запускать Windows и другие операционные системы на macOS без перезагрузки.</p>
+      <h5>Плюсы:</h5>
+      <ul>
+        <li>Высокая производительность: Parallels Desktop известен своей оптимизацией, обеспечивающей плавную работу виртуальных машин, сравнимую с нативной.</li>
+        <li>Простота использования: Интуитивно понятный интерфейс делает его доступным для пользователей с разным уровнем подготовки.</li>
+        <li>Интеграция с macOS: Отличная интеграция позволяет обмениваться файлами, использовать приложения Windows в macOS и наоборот.</li>
+        <li>Поддержка DirectX и OpenGL: Обеспечивает хорошую поддержку для запуска игр и приложений, требующих аппаратного ускорения графики.</li>
+      </ul>
+      <h5>Минусы:</h5>
+      <ul>
+        <li>Платное решение: Требуется покупка лицензии, что может быть дорого для некоторых пользователей.</li>
+        <li>Требовательность к ресурсам: Для оптимальной работы требуется достаточно мощный Mac с большим объемом оперативной памяти и быстрым процессором.</li>
+      </ul>
+      <p><a href="https://www.parallels.com/ru/products/desktop/" target="_blank">Официальный сайт Parallels Desktop</a></p>
+    </div>
+
+    <button class="button" onclick="showAppDetails('vmware-details')">VMware Fusion</button>
+    <div id="vmware-details" class="app-details">
+      <h4>VMware Fusion</h4>
+      <p>VMware Fusion — это программное обеспечение для виртуализации, разработанное компанией VMware, предназначенное для запуска других операционных систем внутри macOS. Оно позволяет пользователям запускать Windows, Linux или другие ОС параллельно с macOS без необходимости перезагрузки компьютера.</p>
+      <h5>Плюсы:</h5>
+      <ul>
+        <li>Удобный интерфейс для пользователей Mac.</li>
+        <li>Высокая производительность виртуальных машин.</li>
+        <li>Широкие возможности настройки виртуальных сред.</li>
+      </ul>
+      <h5>Минусы:</h5>
+      <ul>
+        <li>Стоимость лицензии (обычно платная).</li>
+        <li>Требует ресурсов системы: достаточно мощный Mac для комфортной работы нескольких ОС одновременно.</li>
+      </ul>
+      <p><a href="https://www.vmware.com/products/fusion.html" target="_blank">Официальный сайт VMware Fusion</a></p>
+    </div>
+
+    <div>
+      <h4>Презентация Системного Администрирования</h4>
+      <div class="presentation-container">
+        <iframe src="https://drive.google.com/file/d/1MnBMx7b14IyeTqZFY_FB0yb6CMK8Vpiz/preview" width="100%" height="100%" style="border:none;"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 </p>
+  </footer>
+
+  <script>
+    function showTab(tabId) {
+      var tabs = document.querySelectorAll('.content');
+      tabs.forEach(function(tab) {
+        tab.classList.remove('active');
+      });
+      var activeTab = document.getElementById(tabId);
+      if (activeTab) {
+        activeTab.classList.add('active');
+      }
+    }
+
+    function showAppDetails(appId) {
+      var details = document.querySelectorAll('.app-details');
+      details.forEach(function(detail) {
+        detail.classList.remove('active');
+      });
+      var activeApp = document.getElementById(appId);
+      if (activeApp) {
+        activeApp.classList.add('active');
+      }
+    }
+
+    showTab('project-info');
+  </script>
+</body>
+
+</html>
+</craftcontent>
